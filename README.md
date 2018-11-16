@@ -12,7 +12,7 @@ More specifically:
   
 • After the first log in, the user can see the books which he/she added,
   the reviews which he/she commented on his/hers or someone else's book and
-  the revies that other users commented on his/her book(s).
+  the reviews that other users commented on his/her book(s).
   
 This is a RESTful WebApi(2) project written in C# 7.0 and .NET Framework 4.6.1.
 Using Entity Framework 6 as an ORM (Code-First).
