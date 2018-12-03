@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html ng-app="myModule">
+ <!-- Bootstrap our Angular app -->
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/Script.js"></script>
+</head>
+<body>
+    <div ng-controller="myController">
+        <div>
+            Book Title : <input type="text" ng-model="book.title" /><br />
+            {{book.title}} <!-- Data Binding Expression -->
+            <br /><br />
+        </div>
+        <div>
+            ISBN       : <input type="text" ng-model="book.ISBN" /><br />
+            {{book.ISBN}}
+        </div>
+    </div>
+</body>
+</html>

@@ -3,8 +3,20 @@
 <head>
     <meta charset="utf-8" />
     <title>RateYourBook</title>
+    <script type="text/javascript">
+        function addBook()
+        {
+            var title = document.getElementById("1").value;
+            var author = document.getElementById("t2").value;
+            alert(title + author);
+        }
+    </script>
 </head>
 <body>
     <h1>Welcome to RateYourBook Application!</h1>
+
+    <ul>Title  : <input type="text" name="" id="t1" /></ul>
+    <ul>Author : <input type="text" name="" id="t2" /></ul>
+    <ul><button onclick="addBook()">Add Book!</button></ul>
 </body>
 </html>

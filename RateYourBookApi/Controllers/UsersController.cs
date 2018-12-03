@@ -12,14 +12,21 @@ namespace RateYourBookApi
 
         public UsersController()
         {
-
+            //
         }
 
         [HttpPost]
-        [Route("addBook")]
+        [Route("books")]
         public List<Books> AddBook(Books book)
         {
             return userService.AddBook(book);
+        }
+
+        [HttpPost]
+        [Route("user")]
+        public List<Users> AddUser(Users user)
+        {
+            return userService.AddUser(user);
         }
 
         [HttpPost]

@@ -8,8 +8,10 @@ namespace RateYourBook.Types
     {
         [DataMember(Name ="id")]
         public int Id { get; set; }
+
         [DataMember(Name = "textReview")]
         public string TextReview { get; set; }
+
         [DataMember(Name = "stars")]
         public int Stars { get; set; } // TODO: from 1 till 5
 

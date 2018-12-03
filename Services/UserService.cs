@@ -21,7 +21,16 @@ namespace Services
 
             return books;
         }
-   
+
+        public List<Users> AddUser(Users user)
+        {
+            InsertUser(user);
+
+            var users = GetAllUsers();
+
+            return users;
+        }
+
         public List<Evaluations> RateBook(Evaluations evaluation)
         {
             InsertEvaluation(evaluation);
@@ -124,14 +133,16 @@ namespace Services
         //----------------------------------------------------
         private static void InsertManyBooks(Books request)
         {
-                //{
-                //    "Title" : "Doctor Sleep",
-                //	"Author" : "Stephen King",
-                //	"User":
-                //	{
-                //        "Id" : 2
-                //    }
-                //}
+            #region json Example
+            //{
+            //  "Title" : "Doctor Sleep",
+            //	"Author" : "Stephen King",
+            //	"User":
+            //	{
+            //        "Id" : 2
+            //  }
+            //}
+            #endregion
             var book = new Books()
             {
                 Id = request.Id,
@@ -152,21 +163,22 @@ namespace Services
 
         private static void InsertEvaluation(Evaluations request)
         {
-            //  {
-            //      "TextReview" : "What???",
-            //      "Stars" : 5,
-            //      "User":
-            //      {
-            //          "Id" : 3
-            //      },
-            //      "Book":
-            //      {
-            //          "Id" : 4
-            //      }
-            //  }
+            #region json Example
+            //{
+            //    "TextReview" : "Wtf man?",
+            //    "Stars" : 5,
+            //    "user":
+            //    {
+            //        "Id" : 1
+            //    },
+            //    "book":
+            //    {
+            //        "isbn" : 2
+            //    }
+            //}
+            #endregion
             var evaluation = new Evaluations()
             {
-                Id = request.Id,
                 TextReview = request.TextReview,
                 Stars = request.Stars
             };
@@ -174,13 +186,41 @@ namespace Services
             //DbSet
             using (var context = new BookDbContext())
             {
-                var user = context.User.First(x => x.Id == request.User.Id);
+                var user = context.User.FirstOrDefault(x => x.Id == request.User.Id);
                 evaluation.User = user;
 
-                var book = context.Book.First(x => x.Id == request.Book.Id);
+                var book = context.Book.FirstOrDefault(z => z.Id == request.Book.Id);
                 evaluation.Book = book;
 
                 context.Evaluation.AddRange(new List<Evaluations> { evaluation });
+                context.SaveChanges();
+            }
+        }
+
+        private static void InsertUser(Users request)
+        {
+            #region json Example
+            //{
+            //   "Name":"Mary",
+            //   "Surname":"Papadopoulou",
+            //   "Email":"mar.pap@gmail.com",
+            //   "UserName":"MaryPap",
+            //   "Password":"1234"
+            //}
+            #endregion
+            var user = new Users()
+            {
+                Name = request.Name,
+                Surname = request.Surname,
+                Email = request.Email,
+                UserName = request.UserName,
+                Password = request.Password
+            };
+
+            //DbSet
+            using (var context = new BookDbContext())
+            {
+                context.User.AddRange(new List<Users> { user });
                 context.SaveChanges();
             }
         }

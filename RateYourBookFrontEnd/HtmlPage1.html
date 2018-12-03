@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html ng-app="myModule"> <!-- Bootstrap our Angular app -->
+<head>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/ScriptDB.js"></script>
+</head>
+<body>
+    <div ng-controller="myController">
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="book in books">
+                    <td>{{book.isbn}}</td>
+                    <td>{{book.title}}</td>
+                    <td>{{book.author}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+</body>
+</html>
