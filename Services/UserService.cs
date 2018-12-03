@@ -13,6 +13,7 @@ namespace Services
             throw new NotImplementedException();
         }
 
+        #region Add
         public List<Books> AddBook(Books book)
         {
             InsertManyBooks(book);
@@ -38,19 +39,17 @@ namespace Services
             var evaluations = GetAllEvaluationsPerBook();
 
             return evaluations;
-        }      
+        }
+        #endregion
 
         #region Get - Services are Ready
-        
+
         public Books GetBookByIsbn(int ISBN)
         {
             return GetBookFromDb(ISBN);
         }
-        public List<Books> GetAllBooksAddedPerUser(Users givenUser)
+        public List<Books> GetAllBooksAddedPerUser(int givenUserId)
         {
-            //{
-            //    "id":1
-            //}
             using (var context = new BookDbContext())
             {
                 var books = context.Book.ToList();
@@ -64,7 +63,7 @@ namespace Services
                     {
                         if (u.Id == b.User.Id)
                         {
-                            if (u.Id == givenUser.Id)
+                            if (u.Id == givenUserId)
                             {
                                 booksAddedPerUser.Add(b);
                             }
@@ -100,7 +99,7 @@ namespace Services
                 return evaluations;
             }
         }
-        public List<Evaluations> GetAllEvaluationsPerUser(Users givenUser)
+        public List<Evaluations> GetAllEvaluationsPerUser(int givenUserId)
         {
             //{"id":1} --> Test this value in Restlet or Fiddler
             using (var context = new BookDbContext())
@@ -117,7 +116,7 @@ namespace Services
                     {
                         if (u.Id == e.User.Id)
                         {
-                            if(u.Id == givenUser.Id)
+                            if(u.Id == givenUserId)
                             {
                                 evaluationsPerUser.Add(e);
                             }

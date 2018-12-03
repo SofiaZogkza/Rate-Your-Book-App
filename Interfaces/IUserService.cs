@@ -12,13 +12,13 @@ namespace Interfaces
         List<Users> AddUser(Users user);
 
         Books GetBookByIsbn(int ISBN);
-        List<Books> GetAllBooksAddedPerUser(Users id);
+        List<Books> GetAllBooksAddedPerUser(int userId);
         List<Books> GetAllBooks();
 
         Users GetUserById(int userId);
         List<Users> GetAllUsers();
 
         List<Evaluations> GetAllEvaluationsPerBook();
-        List<Evaluations> GetAllEvaluationsPerUser(Users user);
+        List<Evaluations> GetAllEvaluationsPerUser(int userId);
     }
 }

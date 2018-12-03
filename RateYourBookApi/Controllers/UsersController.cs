@@ -22,11 +22,22 @@ namespace RateYourBookApi
             return userService.AddBook(book);
         }
 
-        [HttpPost]
-        [Route("user")]
-        public List<Users> AddUser(Users user)
+        [Route("books/{ISBN}")]
+        public Books GetBookByIsbn(int ISBN)
         {
-            return userService.AddUser(user);
+            return userService.GetBookByIsbn(ISBN);
+        }
+
+        [Route("books")]
+        public IEnumerable<Books> GetBooks()
+        {
+            return userService.GetAllBooks();
+        }
+
+        [Route("books/user/{userId}")]
+        public List<Books> GetAllBooksAddedPerUser(int userId)
+        {
+            return userService.GetAllBooksAddedPerUser(userId);
         }
 
         [HttpPost]
@@ -36,50 +47,35 @@ namespace RateYourBookApi
             return userService.RateBook(evaluation);
         }
 
-        [Route("getBookByIsbn/{ISBN}")]
-        public Books GetBookByIsbn(int ISBN)
+        [HttpPost]
+        [Route("user")]
+        public List<Users> AddUser(Users user)
         {
-            return userService.GetBookByIsbn(ISBN);
+            return userService.AddUser(user);
         }
 
-        //[HttpPost]
-        [Route("getallbooks")]
-        public IEnumerable<Books> GetBooks()
-        {
-            return userService.GetAllBooks();
-        }
-
-        [Route("getUserById/{id}")]
+        [Route("users/{id}")]
         public Users GetUserById(int id)
         {
             return userService.GetUserById(id);
         }
-
-        [HttpPost]
-        [Route("getallusers")]       
+        
+        [Route("users")]       
         public IEnumerable<Users> GetAllUsers()
         {
             return userService.GetAllUsers();
         }
         
-        [Route("getAllEvaluationsPerBook")]
+        [Route("evaluations")]
         public List<Evaluations> GetAllEvaluationsPerBook()
         {
             return userService.GetAllEvaluationsPerBook();
         }
-
-        [HttpPost]
-        [Route("getAllEvaluationsPerUser")]
-        public List<Evaluations> GetAllEvaluationsPerUser(Users user)
+       
+        [Route("evaluations/{userId}")]
+        public List<Evaluations> GetAllEvaluationsPerUser(int userId)
         {
-            return userService.GetAllEvaluationsPerUser(user);
-        }
-
-        [HttpPost]
-        [Route("getAllBooksAddedPerUser")]
-        public List<Books> GetAllBooksAddedPerUser(Users givenUser)
-        {
-            return userService.GetAllBooksAddedPerUser(givenUser);
+            return userService.GetAllEvaluationsPerUser(userId);
         }
     }
 }
