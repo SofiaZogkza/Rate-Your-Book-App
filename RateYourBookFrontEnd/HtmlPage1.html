@@ -1,10 +1,25 @@
 ﻿<!DOCTYPE html>
 <html ng-app="myModule"> <!-- Bootstrap our Angular app -->
 <head>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
     <script src="Scripts/angular.min.js"></script>
     <script src="Scripts/ScriptDB.js"></script>
+
+    <title>Rate Your Book</title>
 </head>
 <body>
+    <nav class="navbar navbar-dark bg-dark navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Rate Your Book</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li> <!-- TODO: User Data -->
+                <li><a href="Books.html">About Us</a></li>
+                <li><a href="LogIn.html">Our Clients</a></li>
+            </ul>
+        </div>
+    </nav>
     <div ng-controller="myController">
         <table>
             <thead>

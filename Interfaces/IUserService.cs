@@ -20,5 +20,7 @@ namespace Interfaces
 
         List<Evaluations> GetAllEvaluationsPerBook();
         List<Evaluations> GetAllEvaluationsPerUser(int userId);
+
+        string DeleteEvaluation(int id);
     }
 }

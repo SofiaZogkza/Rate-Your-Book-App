@@ -41,13 +41,6 @@ namespace RateYourBookApi
         }
 
         [HttpPost]
-        [Route("rateBook")]
-        public List<Evaluations> RateBook(Evaluations evaluation)
-        {
-            return userService.RateBook(evaluation);
-        }
-
-        [HttpPost]
         [Route("user")]
         public List<Users> AddUser(Users user)
         {
@@ -65,7 +58,14 @@ namespace RateYourBookApi
         {
             return userService.GetAllUsers();
         }
-        
+
+        [HttpPost]
+        [Route("evaluations")]
+        public List<Evaluations> RateBook(Evaluations evaluation)
+        {
+            return userService.RateBook(evaluation);
+        }
+
         [Route("evaluations")]
         public List<Evaluations> GetAllEvaluationsPerBook()
         {
@@ -76,6 +76,13 @@ namespace RateYourBookApi
         public List<Evaluations> GetAllEvaluationsPerUser(int userId)
         {
             return userService.GetAllEvaluationsPerUser(userId);
+        }
+
+        [HttpDelete]
+        [Route("evaluations/{id}")]
+        public string DeleteEvaluation(int id)
+        {
+            return userService.DeleteEvaluation(id);
         }
     }
 }

@@ -129,6 +129,20 @@ namespace Services
         }
         #endregion
 
+        public string DeleteEvaluation(int id)
+        {
+            using (var context = new BookDbContext())
+            {
+                Evaluations eval = context.Evaluation.Where(x => x.Id == id).Single<Evaluations>();
+                var books = context.Book.ToList();
+                var users = context.User.ToList();
+                context.Evaluation.Remove(eval);
+                context.SaveChanges();
+
+                return "Evaluation has successfully Deleted !";
+            }
+        }
+
         //----------------------------------------------------
         private static void InsertManyBooks(Books request)
         {
