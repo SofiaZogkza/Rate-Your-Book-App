@@ -77,11 +77,11 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="css\StylesRegister.css" />
-    <Content Include="HtmlPage1.html" />
+    <Content Include="app\css\StylesRegister.css" />
+    <Content Include="home.html" />
+    <Content Include="index.html" />
     <Content Include="HtmlPageDemo.html" />
-    <Content Include="img\Books-Title-icon.png" />
-    <Content Include="js\ScriprRegister.js" />
+    <Content Include="app\img\Books-Title-icon.png" />
     <Content Include="LogIn.html" />
     <Content Include="LogInTest.html" />
     <Content Include="Scripts\angular-animate.js" />
@@ -109,6 +109,8 @@
     <Content Include="Scripts\angular-scenario.js" />
     <Content Include="Scripts\angular-touch.js" />
     <Content Include="Scripts\angular-touch.min.js" />
+    <Content Include="Scripts\angular-ui-router.js" />
+    <Content Include="Scripts\angular-ui-router.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -880,15 +882,15 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
-    <Content Include="Scripts\Script.js" />
-    <Content Include="Scripts\ScriptDB.js" />
+    <Content Include="app\js\Script.js" />
+    <Content Include="app\js\app.js" />
     <Content Include="Scripts\sitemap.xml" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="SignUp.html" />
-    <Content Include="StylesPage.css" />
+    <Content Include="app\css\StylesPage.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

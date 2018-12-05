@@ -262,7 +262,8 @@ namespace Services
         {
             using (var context = new BookDbContext())
             {
-                var books = context.Book.SqlQuery("SELECT * FROM Books").ToList();
+                var books = context.Book.ToList();
+                var users = context.User.ToList();
 
                 return books;
             }

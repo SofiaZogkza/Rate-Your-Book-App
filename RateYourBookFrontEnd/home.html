@@ -2,16 +2,18 @@
     <table>
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Title</th>
                 <th>Author</th>
+                <th>User Id</th>
+                <th>Username</th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="book in books">
-                <td>{{book.isbn}}</td>
                 <td>{{book.title}}</td>
                 <td>{{book.author}}</td>
+                <td>{{book.user.id}}</td>
+                <td>{{book.user.userName}}</td>
 
             </tr>
         </tbody>
