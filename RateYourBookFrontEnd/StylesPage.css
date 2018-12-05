@@ -1,0 +1,19 @@
+﻿body {
+}
+
+.nav {
+    margin: 0 auto;
+    padding: 0;
+    width: 75%;
+    color: #9F64D2;
+}
+
+.nav li a {
+    display: inline-block;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #9F64D2;
+}
+.navbar-right {
+    float: right;
+}

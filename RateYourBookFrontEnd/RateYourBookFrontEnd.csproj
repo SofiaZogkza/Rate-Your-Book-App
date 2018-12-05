@@ -69,14 +69,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AboutUs.html" />
+    <Content Include="Books.html" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\StylesRegister.css" />
     <Content Include="HtmlPage1.html" />
     <Content Include="HtmlPageDemo.html" />
+    <Content Include="img\Books-Title-icon.png" />
+    <Content Include="js\ScriprRegister.js" />
+    <Content Include="LogIn.html" />
+    <Content Include="LogInTest.html" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -880,6 +887,8 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="SignUp.html" />
+    <Content Include="StylesPage.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
