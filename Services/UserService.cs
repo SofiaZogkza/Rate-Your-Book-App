@@ -1,6 +1,5 @@
 ﻿using Interfaces;
 using RateYourBook.Types;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,12 +7,31 @@ namespace Services
 {
     public class UserService : IUserService
     {
-        public Users Login()
+        public string LogIn(Users user)
         {
-            throw new NotImplementedException();
+            bool authUser = AuthenticateUser(user);
+
+            if(authUser)
+            {
+                return "Welcome to Rate Your Book App!";
+            }
+
+            return "Username or Password are not Valid.";
         }
 
         #region Add
+        public List<Users> Register(Users user)
+        {
+            bool userAdded = InsertUser(user);
+
+            if (userAdded == false)
+            {
+                return GetAllUsers();
+            }
+
+            return GetUserFromDbByUsername(user.UserName);
+        }
+
         public List<Books> AddBook(Books book)
         {
             InsertManyBooks(book);
@@ -21,15 +39,6 @@ namespace Services
             var books = GetAllBooksFromDb();
 
             return books;
-        }
-
-        public List<Users> AddUser(Users user)
-        {
-            InsertUser(user);
-
-            var users = GetAllUsers();
-
-            return users;
         }
 
         public List<Evaluations> RateBook(Evaluations evaluation)
@@ -210,7 +219,7 @@ namespace Services
             }
         }
 
-        private static void InsertUser(Users request)
+        private static bool InsertUser(Users request)
         {
             #region json Example
             //{
@@ -230,11 +239,41 @@ namespace Services
                 Password = request.Password
             };
 
-            //DbSet
             using (var context = new BookDbContext())
             {
-                context.User.AddRange(new List<Users> { user });
-                context.SaveChanges();
+                var existingUsers = context.User.ToList();
+                var userNameExists = existingUsers.FirstOrDefault(x => x.UserName == user.UserName);
+                var emailExists = existingUsers.FirstOrDefault(x => x.Email == user.Email);
+                
+                if((userNameExists==null) && (emailExists==null))
+                {
+                    context.User.AddRange(new List<Users> { user });
+                    context.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+        }
+
+        private static bool AuthenticateUser(Users request)
+        {
+            var user = new Users()
+            {
+                Email = request.Email,
+                Password = request.Password
+            };
+
+            using (var context = new BookDbContext())
+            {
+                var authUser = (from u in context.User
+                                where u.Email == user.Email && u.Password == user.Password
+                                select new { u })
+                                .ToList();
+
+                if (authUser != null)
+                    return true;
+                
+                return false;
             }
         }
 
@@ -253,6 +292,16 @@ namespace Services
             using (var context = new BookDbContext())
             {
                 var user = context.User.Find(userId);
+
+                return user;
+            }
+        }
+
+        private List<Users> GetUserFromDbByUsername(string userName)
+        {
+            using (var context = new BookDbContext())
+            {
+                var user = context.User.Where(x => x.UserName == userName).ToList();
 
                 return user;
             }

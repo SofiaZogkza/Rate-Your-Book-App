@@ -16,6 +16,13 @@ namespace RateYourBookApi
         }
 
         [HttpPost]
+        [Route("login")]
+        public string LogIn(Users user)
+        {
+            return userService.LogIn(user);
+        }
+
+        [HttpPost]
         [Route("books")]
         public List<Books> AddBook(Books book)
         {
@@ -41,10 +48,10 @@ namespace RateYourBookApi
         }
 
         [HttpPost]
-        [Route("user")]
-        public List<Users> AddUser(Users user)
+        [Route("register")]
+        public List<Users> Register(Users user)
         {
-            return userService.AddUser(user);
+            return userService.Register(user);
         }
 
         [Route("users/{id}")]

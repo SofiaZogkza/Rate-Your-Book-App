@@ -5,11 +5,11 @@ namespace Interfaces
 {
     public interface IUserService
     {
-        Users Login();
+        string LogIn(Users user);
 
         List<Books> AddBook(Books book); //TODO: throw exception or message if the user does not exist
         List<Evaluations> RateBook(Evaluations evaluation);
-        List<Users> AddUser(Users user);
+        List<Users> Register(Users user);
 
         Books GetBookByIsbn(int ISBN);
         List<Books> GetAllBooksAddedPerUser(int userId);
