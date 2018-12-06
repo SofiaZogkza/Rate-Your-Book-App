@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json.Serialization;
 using System.Linq;
+using System.Net.Http.Formatting;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace RateYourBookApi
 {
@@ -10,6 +11,8 @@ namespace RateYourBookApi
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
 
             // Web API routes
             config.MapHttpAttributeRoutes();
@@ -21,6 +24,9 @@ namespace RateYourBookApi
             );
 
             config.Formatters.Remove(config.Formatters.XmlFormatter);
+
+            //var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
+            //jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
         }
     }
 }

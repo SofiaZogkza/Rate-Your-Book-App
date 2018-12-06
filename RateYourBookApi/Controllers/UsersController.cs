@@ -6,6 +6,7 @@ using System.Web.Http;
 
 namespace RateYourBookApi
 {
+    [Authorize]
     public class UsersController : ApiController
     {
         private IUserService userService = new UserService();
@@ -14,12 +15,20 @@ namespace RateYourBookApi
         {
             //
         }
-
+      
         [HttpPost]
         [Route("login")]
         public string LogIn(Users user)
         {
             return userService.LogIn(user);
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("register")]
+        public List<Users> Register(Users user)
+        {
+            return userService.Register(user);
         }
 
         [HttpPost]
@@ -45,13 +54,6 @@ namespace RateYourBookApi
         public List<Books> GetAllBooksAddedPerUser(int userId)
         {
             return userService.GetAllBooksAddedPerUser(userId);
-        }
-
-        [HttpPost]
-        [Route("register")]
-        public List<Users> Register(Users user)
-        {
-            return userService.Register(user);
         }
 
         [Route("users/{id}")]
