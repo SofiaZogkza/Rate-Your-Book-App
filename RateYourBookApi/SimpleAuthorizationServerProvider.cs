@@ -26,7 +26,6 @@ namespace RateYourBookApi
             {
                 if (db != null)
                 {
-                    //var empl = db.Employees.ToList();
                     var user = db.User.ToList();
                     if (user != null)
                     {
@@ -34,7 +33,7 @@ namespace RateYourBookApi
                                                                 && u.Password == context.Password).
                                                                 FirstOrDefault().Name))
                         {
-                            identity.AddClaim(new Claim("Age", "16"));
+                            //identity.AddClaim(new Claim("Age", "16"));
 
                             var props = new AuthenticationProperties(new Dictionary<string, string>
                             {
