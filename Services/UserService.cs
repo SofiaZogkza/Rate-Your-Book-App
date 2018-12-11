@@ -259,14 +259,14 @@ namespace Services
         {
             var user = new Users()
             {
-                Email = request.Email,
+                UserName = request.UserName,
                 Password = request.Password
             };
 
             using (var context = new BookDbContext())
             {
                 var authUser = (from u in context.User
-                                where u.Email == user.Email && u.Password == user.Password
+                                where u.UserName == user.UserName && u.Password == user.Password
                                 select new { u })
                                 .ToList();
 

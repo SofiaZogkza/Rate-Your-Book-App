@@ -1,18 +1,18 @@
-﻿<form>
+﻿<form ng-controller="LoginController">
     <label>
-        <p class="label-txt">ENTER YOUR EMAIL</p>
-        <input type="email" class="input">
+        <p class="label-txt">ENTER YOUR USERNAME</p>
+        <input type="text" ng-model="usernameS" class="input">
         <div class="line-box">
             <div class="line"></div>
         </div>
     </label>
     <label>
         <p class="label-txt">ENTER YOUR PASSWORD</p>
-        <input type="password" class="input">
+        <input type="password" ng-model="passwordS" class="input">
         <div class="line-box">
             <div class="line"></div>
         </div>
     </label>
-    <button >Submit</button>
-    <button ng-app="myModule" a ui-sref="signup" href="#">Sign Up</button>
+    <button href="#" ng-click="login()">submit</button>
+    <button a ui-sref="signup" href="#">sign up</button>
 </form>

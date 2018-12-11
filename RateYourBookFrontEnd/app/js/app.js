@@ -28,9 +28,12 @@ app.config(function ($stateProvider) {
     });
 });
 
-app.controller("myController", function ($scope, $http) {
-    $http.get('http://localhost/RateYourBookApi/books')
-        .then(function (response) {
-            $scope.books = response.data;
-        });
-});
+
+
+//app.config(function ($httpProvider) { //TODO : Check if it is httpProvider or if we can add it to $stateProvider
+//    $httpProvider.interceptors.push('authInterceptorService');
+//});
+
+//app.run(['authService', function (authService) {
+//    authService.fillAuthData();
+//}]);

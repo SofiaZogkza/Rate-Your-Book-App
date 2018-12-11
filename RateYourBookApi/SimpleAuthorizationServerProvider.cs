@@ -46,7 +46,7 @@ namespace RateYourBookApi
                              });
 
                             var ticket = new AuthenticationTicket(identity, props);
-                            context.Validated(ticket);
+                            context.Validated(ticket); // Generate token (behind the scenes)
                         }
                         else
                         {

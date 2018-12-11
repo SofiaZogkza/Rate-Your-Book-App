@@ -70,6 +70,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AboutUs.html" />
+    <Content Include="app\js\authInterceptorService.js" />
+    <Content Include="app\js\authService.js" />
+    <Content Include="app\js\booksService.js" />
+    <Content Include="app\js\controllers\HomeController.js" />
+    <Content Include="app\js\indexController.js" />
+    <Content Include="app\js\controllers\LoginController.js" />
+    <Content Include="app\js\services\AuthenticationService.js" />
+    <Content Include="app\js\signupController.js" />
     <Content Include="Books.html" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -882,7 +890,6 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
-    <Content Include="app\js\Script.js" />
     <Content Include="app\js\app.js" />
     <Content Include="Scripts\sitemap.xml" />
     <Content Include="Scripts\umd\popper-utils.js" />
@@ -938,6 +945,7 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
