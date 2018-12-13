@@ -77,6 +77,7 @@
     <Content Include="app\js\indexController.js" />
     <Content Include="app\js\controllers\LoginController.js" />
     <Content Include="app\js\services\AuthenticationService.js" />
+    <Content Include="app\js\services\GetAuthenticatedService.js" />
     <Content Include="app\js\signupController.js" />
     <Content Include="Books.html" />
     <Content Include="Content\bootstrap-grid.css" />
