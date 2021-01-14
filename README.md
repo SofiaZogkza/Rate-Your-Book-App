@@ -14,7 +14,10 @@ More specifically:
   the reviews which he/she commented on his/hers or someone else's book and
   the reviews that other users commented on his/her book(s).
   
-This is a RESTful WebApi(2) project written in C# 7.0 and .NET Framework 4.6.1.
-Using Entity Framework 6 as an ORM (Code-First).
+This is a RESTful WebApi2 project is written in C# 7.0 and .NET Framework 4.6.1.
+
+Entity Framework 6 (Code-First).
+
 SQL Server 2017 - SSMS 2017.
+
 Visual Studio 2017.
